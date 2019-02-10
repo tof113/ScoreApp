@@ -1,0 +1,113 @@
+<p>
+    manage-matchs works!
+  </p>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <h2> looking at {{sport.name}}</h2>
+            </div>
+        <div class="col-md-12">
+          <h2>Matchs</h2>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="col-md-12">
+                  <p>Add a player</p>
+                    <input #newPlayer
+                    (keyup.enter)="addPlayer(newPlayer.value)" />
+                    <button type="button" class="btn btn-default" (click)="addPlayer(newPlayer.value)">Add</button>
+                </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <p>Add match</p>
+                    <div>
+                        <div>
+                            <p>Team 1 :</p>
+                            <p>Score : <input [(ngModel)]="scoreT1" type="number" name="score1">
+                            <table class="table">
+                              <thead>
+                                  <th>players</th>
+                                  <th>remove</th>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let player of team1; let i = index">
+                                  <td>
+                                    <p>{{player.name}}</p>
+                                  </td>
+                                  <td>
+                                      <button type="button" class="btn btn-default" (click)="removeFromTeam(1,i)">remove</button> 
+                                  </td>
+                                </tr>
+                                <tr *ngIf="displayAddNewPLayer1">
+                                  <td>
+                                      <select [(ngModel)]="currentPLayerT1">
+                                          <option *ngFor="let player of players" [value]="player.id">{{player.name}}</option>
+                                       </select>
+                                  </td>
+                                  <td>
+                                      <button type="button" class="btn btn-default" (click)="addToTeam(1,currentPLayerT1)">Add</button> 
+                                  </td>
+                                </tr>
+                              </tbody>
+                              <div>
+                                  <button type="button" class="btn btn-default" (click)="addNewLine(1)">Add New Player</button> 
+                              </div>
+                            </table>
+      
+                        </div>
+                        <div>
+                            <p>Team 2 :</p>
+                            <p>Score : <input [(ngModel)]="scoreT2" type="number" name="score2">
+                            <table class="table">
+                              <thead>
+                                  <th>players</th>
+                                  <th>remove</th>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let player of team2; let i = index">
+                                  <td>
+                                    <p>{{player.name}}</p>
+                                  </td>
+                                  <td>
+                                      <button type="button" class="btn btn-default" (click)="removeFromTeam(2,i)">remove</button> 
+                                  </td>
+                                </tr>
+                                <tr *ngIf="displayAddNewPLayer2">
+                                  <td>
+                                      <select [(ngModel)]="currentPLayerT2">
+                                          <option *ngFor="let player of players" [value]="player.id">{{player.name}}</option>
+                                       </select>
+                                  </td>
+                                  <td>
+                                      <button type="button" class="btn btn-default" (click)="addToTeam(2,currentPLayerT2)">Add</button> 
+                                  </td>
+                                </tr>
+                              </tbody>
+                              <div>
+                                  <button type="button" class="btn btn-default" (click)="addNewLine(2)">Add New Player</button> 
+                              </div>
+                            </table>
+      
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default" (click)="addMatch()">Add Match</button> 
+                        </div>
+                    </div>
+  
+                   
+                    
+  
+                  </div>
+            </div>
+          </div>
+    
+        <div *ngIf="displayError" class="row">
+            <p>{{errorMessage}}</p>
+          </div>
+    
+    </div>
+  

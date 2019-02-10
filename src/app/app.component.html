@@ -1,0 +1,55 @@
+<!--Header-->
+<div>
+  <nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+  
+        <a href="" class="navbar-brand">{{title}}</a>
+      </div><!-- Navbar Header-->
+      <div class="navbar-collapse" id="navbar-collapse">
+        
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item"><a href="#" class="nav-link" (click)="showSports()">Sports</a></li> 
+          <div *ngIf="displayMenu">
+            <li class="nav-item"><a href="#" class="nav-link" (click)="showGames()">Games</a> </li>
+            <li class="nav-item"><a href="#" class="nav-link" (click)="showStats()">Stats</a> </li>
+          
+          </div>
+        </ul>
+  
+      </div>
+    </div><!-- End Container-->
+  </nav><!-- End navbar -->
+</div><!-- End header -->
+
+<!--Page content-->
+<div>
+  <!--manage-sports-->
+  <div *ngIf="displaySports">
+    <app-manage-sports (messageEvent)="goToGames($event)"></app-manage-sports>
+  </div>
+  
+  <!-- don't display if no sport chosen yet-->
+  
+    <!--manage-games-->
+    <div *ngIf="displayGames">
+      <app-games [currentSport]="currentSport"> </app-games>
+    </div>
+
+    <!--stats-->
+    <div *ngIf="displayStats">
+      <app-stats [currentSport]="currentSport"></app-stats>
+    </div>
+  
+  
+  
+
+</div>
+
+
+

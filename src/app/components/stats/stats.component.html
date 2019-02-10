@@ -1,0 +1,38 @@
+<p>
+  stats works!
+</p>
+<div>
+  <div>
+    <h2>Stats for :</h2> <!-- {{sport.name}}-->
+  </div>
+  <div>
+    <table>
+      <thead>
+        <th>
+          sport
+        </th>
+        <th>
+          date
+        </th>
+        <th>
+          team1
+        </th>
+        <th>
+          team2
+        </th>
+        <th>
+          score
+        </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games; let i = index">
+          <td>{{game.sport.name}}</td>
+          <th><p>{{game.played_on | date}}</p></th>
+          <th><p *ngFor="let player of game.team1; let i = index">{{player.name}}</p></th>
+          <th><p *ngFor="let player of game.team2; let i = index">{{player.name}}</p></th>
+          <th><p>{{game.score1}} - {{game.score2}}</p></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
