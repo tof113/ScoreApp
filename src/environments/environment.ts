@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  url:"https://quiet-falls-82904.herokuapp.com",
-  sport:"sport",
-  player:"player",
-  game:"game"
+  url: 'https://quiet-falls-82904.herokuapp.com',
+  sport: 'sport',
+  player: 'player',
+  game: 'game'
 };
 
 /*
