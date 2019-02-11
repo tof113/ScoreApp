@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { Sport } from '../../models/sport';
-import { SportsService } from '../../services/sports.service'
+import {Component, OnInit, EventEmitter, Input, Output} from '@angular/core';
+import {Sport} from '../../models/sport';
+import {SportsService} from '../../services/sports.service';
+
 @Component({
   selector: 'app-manage-sports',
   templateUrl: './manage-sports.component.html',
@@ -9,40 +10,40 @@ import { SportsService } from '../../services/sports.service'
 export class ManageSportsComponent implements OnInit {
 
   currentSportId: number;
-  curretnSport: Sport;
+  currentSport: Sport;
 
-  //temp
-  sports:Sport[];
+  // temp
+  sports: Sport[];
 
-  constructor(private sportService : SportsService) { }
+  constructor(private sportService: SportsService) {
+  }
 
   @Output() messageEvent = new EventEmitter();
+
   ngOnInit() {
-    //get all sports
-    this.sports = new Array();
+    // get all sports
+    this.sports = [];
     this.sportService.getSports().subscribe(res => {
       this.sports = res;
       console.log(this.sports);
-    })
+    });
 
   }
 
-  addSport(sport:string){
-    //Call service
+  addSport(sport: string) {
+    // Call service
     this.sportService.addSport(sport).subscribe(res => {
       this.sports.push(res);
       console.log(this.sports);
     });
 
-    
+
   }
 
-  chooseSport(){
+  chooseSport() {
     console.log(this.currentSportId);
-    //Return the chosen sport to app.component
-    let sport = this.sports.find(k => k.id == this.currentSportId );
-    this.messageEvent.emit([sport.id,sport.name]);
-    
+    // Return the chosen sport to app.component
+    const sport = this.sports.find(k => k.id == this.currentSportId);
+    this.messageEvent.emit([sport.id, sport.name]);
   }
-
 }

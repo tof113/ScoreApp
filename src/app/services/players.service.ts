@@ -9,16 +9,16 @@ import { environment } from '../../environments/environment';
 })
 export class PlayersService {
 
-  newPlayer:Player;
+  newPlayer: Player;
 
 
   constructor(private http: HttpClient) { }
 
-  addPlayer(name:string): Observable<Player>{
-    return this.http.post<Player>(environment.url+'/'+environment.player,{"name":name});
+  addPlayer(name: string): Observable<Player> {
+    return this.http.post<Player>(environment.url + '/' + environment.player, {name});
   }
 
-  getPlayers(): Observable<Player[]>{
-    return this.http.get<Player[]>(environment.url+'/'+environment.player);
+  getPlayers(): Observable<Player[]> {
+    return this.http.get<Player[]>(environment.url + '/' + environment.player);
   }
 }

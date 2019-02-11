@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Sport } from './models/sport';
+import {Component} from '@angular/core';
+import {Sport} from './models/sport';
 
 @Component({
   selector: 'app-root',
@@ -14,34 +14,34 @@ export class AppComponent {
   displaySports = true;
   displayMenu = false;
 
-  currentSport : Sport;
-  currentSportId : number;
+  currentSport: Sport;
+  currentSportId: number;
 
-  showGames(){
+  showGames() {
     this.displayNone();
     this.displayGames = true;
   }
 
-  showStats(){
+  showStats() {
     this.displayNone();
     this.displayStats = true;
   }
 
-  showSports(){
+  showSports() {
     this.displayNone();
-    this.displaySports= true;
+    this.displaySports = true;
   }
 
-  displayNone(){
+  displayNone() {
     this.displayGames = false;
     this.displayStats = false;
     this.displaySports = false;
   }
 
-  goToGames($event){
+  goToGames($event) {
     this.currentSport = $event;
     this.displayMenu = true;
-    console.log("event: " + $event);
+    console.log('event: ' + $event);
     this.showGames();
   }
 }

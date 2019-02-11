@@ -9,20 +9,20 @@ import {Observable} from 'rxjs';
 })
 export class SportsService {
 
-  //temp
+  // temp
   currentId = 3;
-  newSport:Sport;
+  newSport: Sport;
 
   constructor(private http: HttpClient) { }
-  
 
-  addSport(name): Observable<Sport>{
-    //Call api
-    return this.http.post<Sport>(environment.url+'/'+environment.sport,{"name":name});
+
+  addSport(name): Observable<Sport> {
+    // Call api
+    return this.http.post<Sport>(environment.url + '/' + environment.sport, {name});
   }
 
-  getSports(): Observable<Sport[]>{
-    //API
-    return this.http.get<Sport[]>(environment.url+'/'+environment.sport);
+  getSports(): Observable<Sport[]> {
+    // API
+    return this.http.get<Sport[]>(environment.url + '/' + environment.sport);
   }
 }
